@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cqff5fed37exf"]
+
+[ext_resource type="Texture2D" uid="uid://cq7unwkbcyyvf" path="res://assets/animals/bear.png" id="1_aug50"]
+[ext_resource type="Script" uid="uid://braev43ygupoy" path="res://scenes/bear.gd" id="1_kiw3p"]
+[ext_resource type="Texture2D" uid="uid://b5en6s5mmiw53" path="res://assets/animals/buffalo.png" id="2_kiw3p"]
+[ext_resource type="Texture2D" uid="uid://b1tfrtden7bqf" path="res://assets/animals/chick.png" id="3_400sg"]
+[ext_resource type="Script" uid="uid://v7b14xw0ihva" path="res://scenes/buffalo.gd" id="3_g4kob"]
+[ext_resource type="Texture2D" uid="uid://bn78tpgnero53" path="res://assets/homes/brooder.png" id="4_aug50"]
+[ext_resource type="Script" uid="uid://ddimyke1mj1qj" path="res://scenes/chick.gd" id="5_g4kob"]
+[ext_resource type="Texture2D" uid="uid://dh4rrs8liefam" path="res://assets/homes/Cave.png" id="5_kiw3p"]
+[ext_resource type="Texture2D" uid="uid://cnid5loabbdds" path="res://assets/homes/Farm.png" id="6_400sg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5h11f"]
+radius = 88.28363
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx8n8"]
+radius = 100.17984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jx8tp"]
+radius = 73.92564
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
+size = Vector2(675.4743, 328.32855)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(630.6981, 235.31313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iqjx"]
+size = Vector2(611.1107, 251.30733)
+
+[node name="Game" type="Node2D" unique_id=766716135]
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=124334358]
+offset_top = -7.0
+offset_right = 1281.0
+offset_bottom = 713.0
+color = Color(0, 0.7371213, 0.18422097, 1)
+
+[node name="Bear" type="Area2D" parent="." unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label")]
+position = Vector2(168, 350)
+script = ExtResource("1_kiw3p")
+yuva = NodePath("../nests/HomeArea2")
+feedback_label = NodePath("../CanvasLayer/FeedBackLabel")
+yerlesim_ofseti = Vector2(10, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bear" unique_id=767726510]
+position = Vector2(-10, -42)
+shape = SubResource("CircleShape2D_5h11f")
+
+[node name="Bear" type="Sprite2D" parent="Bear" unique_id=1904310283]
+position = Vector2(-13, -34)
+texture = ExtResource("1_aug50")
+
+[node name="Buffalo" type="Area2D" parent="." unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label")]
+position = Vector2(232, 536)
+script = ExtResource("3_g4kob")
+yuva = NodePath("../nests/HomeArea3")
+feedback_label = NodePath("../CanvasLayer/FeedBackLabel")
+yerlesim_ofseti = Vector2(65, 20)
+
+[node name="Buffalo" type="Sprite2D" parent="Buffalo" unique_id=386899023]
+position = Vector2(-66, 15)
+texture = ExtResource("2_kiw3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buffalo" unique_id=1730188228]
+position = Vector2(-67, 8)
+shape = SubResource("CircleShape2D_bx8n8")
+
+[node name="Chick" type="Area2D" parent="." unique_id=1527926636]
+position = Vector2(155, 75)
+script = ExtResource("5_g4kob")
+
+[node name="Chick" type="Sprite2D" parent="Chick" unique_id=669717253]
+texture = ExtResource("3_400sg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chick" unique_id=1720351958]
+shape = SubResource("CircleShape2D_jx8tp")
+
+[node name="Brooder" type="Sprite2D" parent="." unique_id=1688533669]
+position = Vector2(910, 98.999985)
+scale = Vector2(0.6331361, 0.6761519)
+texture = ExtResource("4_aug50")
+
+[node name="Cave" type="Sprite2D" parent="." unique_id=1074881579]
+position = Vector2(896, 291)
+scale = Vector2(0.6642012, 0.71409214)
+texture = ExtResource("5_kiw3p")
+
+[node name="Farm" type="Sprite2D" parent="." unique_id=1704350094]
+position = Vector2(899, 501.00006)
+scale = Vector2(0.66789937, 0.7276423)
+texture = ExtResource("6_400sg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1057653199]
+
+[node name="FeedBackLabel" type="Label" parent="CanvasLayer" unique_id=1965826024]
+visible = false
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="nests" type="CanvasGroup" parent="." unique_id=1787265075]
+
+[node name="HomeArea" type="Area2D" parent="nests" unique_id=833178723]
+position = Vector2(910, 98.999985)
+scale = Vector2(0.6331361, 0.6761519)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nests/HomeArea" unique_id=635739201]
+position = Vector2(3.4216309, 619.6833)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_bx8n8")
+
+[node name="HomeArea2" type="Area2D" parent="nests" unique_id=2065311223]
+position = Vector2(896, 291)
+scale = Vector2(0.6642012, 0.71409214)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nests/HomeArea2" unique_id=1046615848]
+position = Vector2(18.066772, 8.3776245)
+shape = SubResource("RectangleShape2D_5h11f")
+
+[node name="HomeArea3" type="Area2D" parent="nests" unique_id=1488688956]
+position = Vector2(899, 501.00006)
+scale = Vector2(0.66789937, 0.7276423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nests/HomeArea3" unique_id=1656540902]
+position = Vector2(20.961212, -544.2235)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_5iqjx")

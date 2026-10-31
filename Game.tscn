@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cnid5loabbdds" path="res://assets/homes/Farm.png" id="6_400sg"]
 [ext_resource type="Script" uid="uid://521onmkc4k0t" path="res://scripts/celebrationManager.gd" id="10_qy1jj"]
 [ext_resource type="AudioStream" uid="uid://bv1wthkusr084" path="res://audios/celebration.mp3" id="13_r7sob"]
+[ext_resource type="Texture2D" uid="uid://cyh1dnbgocwvm" path="res://images/background.jpeg" id="14_yyih5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5h11f"]
 radius = 88.28363
@@ -35,9 +36,12 @@ size = Vector2(637.94086, 316.38544)
 [node name="Game" type="Node2D" unique_id=766716135]
 
 [node name="BackGround" type="ColorRect" parent="." unique_id=124334358]
-offset_top = -7.0
-offset_right = 1281.0
-offset_bottom = 713.0
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0.7371213, 0.18422097, 1)
 
 [node name="Bear" type="Area2D" parent="." unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label")]
@@ -130,3 +134,16 @@ offset_bottom = 67.0
 [node name="CelebrationManager" type="CanvasLayer" parent="." unique_id=1863500159]
 script = ExtResource("10_qy1jj")
 kutlama_sesi = ExtResource("13_r7sob")
+
+[node name="GameBackgroundImage" type="TextureRect" parent="." unique_id=840084029]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 1279.0
+offset_bottom = 716.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_yyih5")

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b3qd08sr38s41"]
+
+[ext_resource type="Script" uid="uid://dm3srebftdeaf" path="res://scripts/VictoryScreen.gd" id="1_44yii"]
+[ext_resource type="Texture2D" uid="uid://cc62ghhatgnex" path="res://images/VictoryBackground.png" id="1_yvem7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_earqp"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44yii"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="VictoryScreen" type="Control" unique_id=763237520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_44yii")
+
+[node name="HomeButton" type="Button" parent="." unique_id=1928118547]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 614.0
+offset_right = 819.0
+offset_bottom = 699.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_styles/normal = SubResource("StyleBoxFlat_earqp")
+text = "HOME"
+
+[node name="PlayAgainButton" type="Button" parent="." unique_id=442966340]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 511.0
+offset_right = 854.0
+offset_bottom = 596.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+theme_override_styles/normal = SubResource("StyleBoxFlat_44yii")
+text = "PLAY AGAIN"
+
+[node name="Background" type="TextureRect" parent="." unique_id=497332862]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_yvem7")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1521951932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1857932715]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2099412979]
+layout_mode = 2

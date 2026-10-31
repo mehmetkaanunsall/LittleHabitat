@@ -6,6 +6,10 @@ extends Area2D
 @export var feedback_label: Label
 @export var yerlesim_ofseti: Vector2 = Vector2.ZERO
 
+@export_group("Ses Efektleri")
+@export var dogru_ses: AudioStream
+@export var yanlis_ses: AudioStream
+
 var surukleniyor := false
 var fare_mesafesi := Vector2.ZERO
 var baslangic_konumu := Vector2.ZERO
@@ -113,20 +117,28 @@ func yuva_kontrol() -> void:
 
 	if not yuvada_mi:
 		global_position = baslangic_konumu
-		geri_bildirim_goster("✖", Color.RED)
+		geri_bildirim_goster("X", Color.RED)
+		ses_cal(yanlis_ses)
 		print("YANLIS YUVA! Beklenen yuva: ", yuva.name)
 		return
 
+	
 	global_position = yuva.global_position + yerlesim_ofseti
 	z_index = 100
 	tamamlandi = true
+	ses_cal(dogru_ses)
 
 	print(name + ": CORRECT!")
 
 	if tum_hayvanlar_tamamlandi():
 		geri_bildirim_goster("🎉", Color.GOLD)
+		get_tree().call_group(
+			"game_manager",
+	        "oyun_tamamlandi"
+		)
 	else:
 		geri_bildirim_goster("✓", Color.GREEN)
+
 
 
 func tum_hayvanlar_tamamlandi() -> bool:
@@ -222,3 +234,16 @@ func geri_bildirim_goster(metin: String, renk: Color) -> void:
 	feedback_label.visible = false
 	feedback_label.modulate = Color.WHITE
 	feedback_label.scale = Vector2.ONE
+
+
+func ses_cal(ses: AudioStream) -> void:
+	if ses == null:
+		return
+
+	var oynatici := AudioStreamPlayer.new()
+	oynatici.stream = ses
+	oynatici.volume_db = -3.0
+	add_child(oynatici)
+
+	oynatici.finished.connect(oynatici.queue_free)
+	oynatici.play()

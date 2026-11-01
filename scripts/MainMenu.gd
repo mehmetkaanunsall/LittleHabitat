@@ -7,6 +7,9 @@ const TASARIM_BOYUTU := Vector2(1280.0, 720.0)
 const BUTON_BOYUTU := Vector2(356.0, 136.0)
 const BUTON_KONUMU := Vector2(476.0, 393.0)
 
+var sahne_degistiriliyor := false
+
+
 func _ready() -> void:
 	get_viewport().size_changed.connect(_ekrani_yeniden_olce)
 	_ekrani_yeniden_olce()
@@ -29,5 +32,23 @@ func _ekrani_yeniden_olce() -> void:
 	)
 
 
+func _input(event: InputEvent) -> void:
+	if sahne_degistiriliyor:
+		return
+
+	if event is InputEventScreenTouch and event.pressed:
+		if play_button.get_global_rect().has_point(event.position):
+			_oyunu_baslat()
+			get_viewport().set_input_as_handled()
+
+
 func _on_play_button_pressed() -> void:
+	_oyunu_baslat()
+
+
+func _oyunu_baslat() -> void:
+	if sahne_degistiriliyor:
+		return
+
+	sahne_degistiriliyor = true
 	get_tree().change_scene_to_file("res://Game.tscn")

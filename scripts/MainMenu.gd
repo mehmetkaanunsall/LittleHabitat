@@ -51,4 +51,4 @@ func _oyunu_baslat() -> void:
 		return
 
 	sahne_degistiriliyor = true
-	get_tree().change_scene_to_file("res://Game.tscn")
+	get_tree().change_scene_to_file("res://LevelSelect.tscn")

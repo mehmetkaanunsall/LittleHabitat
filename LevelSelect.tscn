@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://easd2grbti66"]
+
+[ext_resource type="Script" uid="uid://cg1pwoyt7vn6i" path="res://scripts/LevelSelect.gd" id="1_sf6f5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf6f5"]
+bg_color = Color(0.41960785, 0.5568628, 0.23921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uebnx"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il3u1"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vomi7"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wevku"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="LevelSelect" type="Control" unique_id=398529380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_sf6f5")
+
+[node name="HomeButton" type="Button" parent="." unique_id=1042619076]
+layout_mode = 1
+offset_right = 110.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_sf6f5")
+text = "HOME"
+
+[node name="Background" type="ColorRect" parent="." unique_id=369828539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.060137138, 0.6313691, 0.7044885, 1)
+
+[node name="MainContainer" type="VBoxContainer" parent="." unique_id=658218068]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+mouse_filter = 2
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="MainContainer" unique_id=1924551391]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelGrid" type="GridContainer" parent="MainContainer" unique_id=1078972297]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="LevelCard1" type="PanelContainer" parent="MainContainer/LevelGrid" unique_id=989462652]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_uebnx")
+
+[node name="CardContent" type="VBoxContainer" parent="MainContainer/LevelGrid/LevelCard1" unique_id=1337259798]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelImage" type="TextureRect" parent="MainContainer/LevelGrid/LevelCard1/CardContent" unique_id=1611281648]
+custom_minimum_size = Vector2(280, 130)
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelName" type="Label" parent="MainContainer/LevelGrid/LevelCard1/CardContent" unique_id=515890146]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "1. Animals"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainContainer/LevelGrid/LevelCard1/CardContent" unique_id=1150946977]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "PLAY"
+
+[node name="LevelCard2" type="PanelContainer" parent="MainContainer/LevelGrid" unique_id=20075316]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_il3u1")
+
+[node name="CardContent" type="VBoxContainer" parent="MainContainer/LevelGrid/LevelCard2" unique_id=1209502545]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelImage" type="TextureRect" parent="MainContainer/LevelGrid/LevelCard2/CardContent" unique_id=1909358305]
+custom_minimum_size = Vector2(280, 130)
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelName" type="Label" parent="MainContainer/LevelGrid/LevelCard2/CardContent" unique_id=1073379580]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "2. Farm"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainContainer/LevelGrid/LevelCard2/CardContent" unique_id=1069061710]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "PLAY"
+
+[node name="LevelCard3" type="PanelContainer" parent="MainContainer/LevelGrid" unique_id=1735822740]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vomi7")
+
+[node name="CardContent" type="VBoxContainer" parent="MainContainer/LevelGrid/LevelCard3" unique_id=1205072416]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelImage" type="TextureRect" parent="MainContainer/LevelGrid/LevelCard3/CardContent" unique_id=911885439]
+custom_minimum_size = Vector2(280, 130)
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelName" type="Label" parent="MainContainer/LevelGrid/LevelCard3/CardContent" unique_id=559905646]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "3. Forest"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainContainer/LevelGrid/LevelCard3/CardContent" unique_id=1996126942]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "PLAY"
+
+[node name="LevelCard4" type="PanelContainer" parent="MainContainer/LevelGrid" unique_id=651751466]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wevku")
+
+[node name="CardContent" type="VBoxContainer" parent="MainContainer/LevelGrid/LevelCard4" unique_id=1952475599]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelImage" type="TextureRect" parent="MainContainer/LevelGrid/LevelCard4/CardContent" unique_id=13699700]
+custom_minimum_size = Vector2(280, 130)
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelName" type="Label" parent="MainContainer/LevelGrid/LevelCard4/CardContent" unique_id=1836520336]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "4. Ocean"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainContainer/LevelGrid/LevelCard4/CardContent" unique_id=238159945]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "PLAY"
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_pressed"]

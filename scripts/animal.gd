@@ -17,7 +17,7 @@ var tamamlandi := false
 
 
 func _ready() -> void:
-	baslangic_konumu = global_position
+	baslangic_konumu = position
 	z_index = 10
 	add_to_group("animals")
 
@@ -67,7 +67,7 @@ func fare_gorselin_uzerinde_mi(fare_konumu: Vector2) -> bool:
 func yuva_kontrol() -> void:
 	if yuva == null:
 		push_warning(name + ": Yuva atanmamis!")
-		global_position = baslangic_konumu
+		position = baslangic_konumu
 		return
 
 	var collision_shape: CollisionShape2D = null
@@ -79,7 +79,7 @@ func yuva_kontrol() -> void:
 
 	if collision_shape == null or collision_shape.shape == null:
 		push_warning(name + ": Yuvada CollisionShape2D bulunamadi!")
-		global_position = baslangic_konumu
+		position = baslangic_konumu
 		return
 
 	var fare_konumu = get_global_mouse_position()
@@ -116,7 +116,7 @@ func yuva_kontrol() -> void:
 		push_warning(name + ": Desteklenmeyen yuva sekli.")
 
 	if not yuvada_mi:
-		global_position = baslangic_konumu
+		position = baslangic_konumu
 		geri_bildirim_goster("X", Color.RED)
 		ses_cal(yanlis_ses)
 		print("YANLIS YUVA! Beklenen yuva: ", yuva.name)

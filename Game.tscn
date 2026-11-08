@@ -46,87 +46,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.7371213, 0.18422097, 1)
 
-[node name="Bear" type="Area2D" parent="." unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label")]
-position = Vector2(168, 350)
-script = ExtResource("1_kiw3p")
-yuva = NodePath("../Cave/HomeArea")
-feedback_label = NodePath("../CanvasLayer/FeedBackLabel")
-dogru_ses = ExtResource("2_2rd6h")
-yanlis_ses = ExtResource("3_7ua8r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bear" unique_id=767726510]
-position = Vector2(-10, -42)
-shape = SubResource("CircleShape2D_5h11f")
-
-[node name="Bear" type="Sprite2D" parent="Bear" unique_id=1904310283]
-position = Vector2(-13, -34)
-texture = ExtResource("1_aug50")
-
-[node name="Buffalo" type="Area2D" parent="." unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label")]
-position = Vector2(232, 536)
-script = ExtResource("3_g4kob")
-yuva = NodePath("../Farm/HomeArea")
-feedback_label = NodePath("../CanvasLayer/FeedBackLabel")
-dogru_ses = ExtResource("2_2rd6h")
-yanlis_ses = ExtResource("3_7ua8r")
-
-[node name="Buffalo" type="Sprite2D" parent="Buffalo" unique_id=386899023]
-position = Vector2(-66, 15)
-texture = ExtResource("2_kiw3p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buffalo" unique_id=1730188228]
-position = Vector2(-67, 8)
-shape = SubResource("CircleShape2D_bx8n8")
-
-[node name="Chick" type="Area2D" parent="." unique_id=1527926636 node_paths=PackedStringArray("yuva", "feedback_label")]
-position = Vector2(155, 75)
-script = ExtResource("5_g4kob")
-yuva = NodePath("../Brooder/HomeArea")
-feedback_label = NodePath("../CanvasLayer/FeedBackLabel")
-dogru_ses = ExtResource("2_2rd6h")
-yanlis_ses = ExtResource("3_7ua8r")
-
-[node name="Chick" type="Sprite2D" parent="Chick" unique_id=669717253]
-texture = ExtResource("3_400sg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chick" unique_id=1720351958]
-shape = SubResource("CircleShape2D_jx8tp")
-
-[node name="Brooder" type="Sprite2D" parent="." unique_id=1688533669]
-position = Vector2(910, 98.999985)
-scale = Vector2(0.6331361, 0.6761519)
-texture = ExtResource("4_aug50")
-
-[node name="HomeArea" type="Area2D" parent="Brooder" unique_id=833178723]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brooder/HomeArea" unique_id=635739201]
-position = Vector2(-9.016235, 11.83168)
-scale = Vector2(1, 1.0000001)
-shape = SubResource("RectangleShape2D_bx8n8")
-
-[node name="Cave" type="Sprite2D" parent="." unique_id=1074881579]
-position = Vector2(896, 291)
-scale = Vector2(0.6642012, 0.71409214)
-texture = ExtResource("5_kiw3p")
-
-[node name="HomeArea" type="Area2D" parent="Cave" unique_id=2065311223]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cave/HomeArea" unique_id=1046615848]
-position = Vector2(18.066772, 8.3776245)
-shape = SubResource("RectangleShape2D_5h11f")
-
-[node name="Farm" type="Sprite2D" parent="." unique_id=1704350094]
-position = Vector2(899, 501.00006)
-scale = Vector2(0.66789937, 0.7276423)
-texture = ExtResource("6_400sg")
-
-[node name="HomeArea" type="Area2D" parent="Farm" unique_id=1488688956]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Farm/HomeArea" unique_id=1656540902]
-position = Vector2(13.475098, 2.6004639)
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_5iqjx")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1057653199]
 
 [node name="FeedBackLabel" type="Label" parent="CanvasLayer" unique_id=1965826024]
@@ -154,3 +73,86 @@ texture = ExtResource("16_elkpi")
 z_index = -100
 position = Vector2(640, 360)
 texture = ExtResource("16_elkpi")
+
+[node name="OyunAlani" type="Node2D" parent="." unique_id=485452571]
+
+[node name="Bear" type="Area2D" parent="OyunAlani" unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label")]
+position = Vector2(168, 350)
+script = ExtResource("1_kiw3p")
+yuva = NodePath("../Cave/HomeArea")
+feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+dogru_ses = ExtResource("2_2rd6h")
+yanlis_ses = ExtResource("3_7ua8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Bear" unique_id=767726510]
+position = Vector2(-10, -42)
+shape = SubResource("CircleShape2D_5h11f")
+
+[node name="Bear" type="Sprite2D" parent="OyunAlani/Bear" unique_id=1904310283]
+position = Vector2(-13, -34)
+texture = ExtResource("1_aug50")
+
+[node name="Buffalo" type="Area2D" parent="OyunAlani" unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label")]
+position = Vector2(232, 536)
+script = ExtResource("3_g4kob")
+yuva = NodePath("../Farm/HomeArea")
+feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+dogru_ses = ExtResource("2_2rd6h")
+yanlis_ses = ExtResource("3_7ua8r")
+
+[node name="Buffalo" type="Sprite2D" parent="OyunAlani/Buffalo" unique_id=386899023]
+position = Vector2(-66, 15)
+texture = ExtResource("2_kiw3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Buffalo" unique_id=1730188228]
+position = Vector2(-67, 8)
+shape = SubResource("CircleShape2D_bx8n8")
+
+[node name="Chick" type="Area2D" parent="OyunAlani" unique_id=1527926636 node_paths=PackedStringArray("yuva", "feedback_label")]
+position = Vector2(155, 75)
+script = ExtResource("5_g4kob")
+yuva = NodePath("../Brooder/HomeArea")
+feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+dogru_ses = ExtResource("2_2rd6h")
+yanlis_ses = ExtResource("3_7ua8r")
+
+[node name="Chick" type="Sprite2D" parent="OyunAlani/Chick" unique_id=669717253]
+texture = ExtResource("3_400sg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Chick" unique_id=1720351958]
+shape = SubResource("CircleShape2D_jx8tp")
+
+[node name="Brooder" type="Sprite2D" parent="OyunAlani" unique_id=1688533669]
+position = Vector2(910, 98.999985)
+scale = Vector2(0.6331361, 0.6761519)
+texture = ExtResource("4_aug50")
+
+[node name="HomeArea" type="Area2D" parent="OyunAlani/Brooder" unique_id=833178723]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Brooder/HomeArea" unique_id=635739201]
+position = Vector2(-9.016235, 11.83168)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_bx8n8")
+
+[node name="Cave" type="Sprite2D" parent="OyunAlani" unique_id=1074881579]
+position = Vector2(896, 291)
+scale = Vector2(0.6642012, 0.71409214)
+texture = ExtResource("5_kiw3p")
+
+[node name="HomeArea" type="Area2D" parent="OyunAlani/Cave" unique_id=2065311223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Cave/HomeArea" unique_id=1046615848]
+position = Vector2(18.066772, 8.3776245)
+shape = SubResource("RectangleShape2D_5h11f")
+
+[node name="Farm" type="Sprite2D" parent="OyunAlani" unique_id=1704350094]
+position = Vector2(899, 501.00006)
+scale = Vector2(0.66789937, 0.7276423)
+texture = ExtResource("6_400sg")
+
+[node name="HomeArea" type="Area2D" parent="OyunAlani/Farm" unique_id=1488688956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OyunAlani/Farm/HomeArea" unique_id=1656540902]
+position = Vector2(13.475098, 2.6004639)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_5iqjx")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://easd2grbti66"]
 
 [ext_resource type="Script" uid="uid://cg1pwoyt7vn6i" path="res://scripts/LevelSelect.gd" id="1_sf6f5"]
+[ext_resource type="Texture2D" uid="uid://cyn21t36w6ov1" path="res://assets/UI/LevelSelect.png" id="2_ardn0"]
+[ext_resource type="Script" uid="uid://bxo38dp82us6i" path="res://scripts/Hotspots.gd" id="3_q3t17"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf6f5"]
 bg_color = Color(0.41960785, 0.5568628, 0.23921569, 1)
@@ -45,6 +47,36 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyrbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvwvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5tpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nb57j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3bbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41uxa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bmyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvlej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_il1aw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3t17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clf2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a771"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7o85a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gc2n2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7xen"]
+
 [node name="LevelSelect" type="Control" unique_id=398529380]
 layout_mode = 3
 anchors_preset = 15
@@ -56,15 +88,18 @@ size_flags_vertical = 3
 script = ExtResource("1_sf6f5")
 
 [node name="HomeButton" type="Button" parent="." unique_id=1042619076]
+visible = false
 layout_mode = 1
 offset_right = 110.0
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_sf6f5")
+disabled = true
 text = "HOME"
 
 [node name="Background" type="ColorRect" parent="." unique_id=369828539]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +110,7 @@ mouse_filter = 2
 color = Color(0.060137138, 0.6313691, 0.7044885, 1)
 
 [node name="MainContainer" type="VBoxContainer" parent="." unique_id=658218068]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,4 +249,78 @@ custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 text = "PLAY"
 
-[connection signal="pressed" from="HomeButton" to="." method="_on_home_pressed"]
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=613897135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ardn0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Hotspots" type="Control" parent="." unique_id=1014611916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_q3t17")
+
+[node name="AnimalsButton" type="Button" parent="Hotspots" unique_id=1011441273]
+custom_minimum_size = Vector2(120, 42)
+layout_mode = 0
+offset_left = 86.0
+offset_top = 480.0
+offset_right = 286.0
+offset_bottom = 556.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gyrbw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tvwvf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w5tpn")
+
+[node name="FarmButton" type="Button" parent="Hotspots" unique_id=1585763703]
+custom_minimum_size = Vector2(120, 55)
+layout_mode = 0
+offset_left = 396.0
+offset_top = 479.0
+offset_right = 590.0
+offset_bottom = 557.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nb57j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b3bbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_41uxa")
+
+[node name="ForestButton" type="Button" parent="Hotspots" unique_id=992477895]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 0
+offset_left = 695.0
+offset_top = 480.0
+offset_right = 894.0
+offset_bottom = 560.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0bmyu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hvlej")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_il1aw")
+
+[node name="OceanButton" type="Button" parent="Hotspots" unique_id=486365073]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 0
+offset_left = 995.0
+offset_top = 480.0
+offset_right = 1193.0
+offset_bottom = 560.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q3t17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clf2l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0a771")
+
+[node name="HomeHotspot" type="Button" parent="Hotspots" unique_id=857614849]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 15.0
+offset_right = 156.0
+offset_bottom = 131.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7o85a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gc2n2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b7xen")

@@ -9,18 +9,11 @@ func _ready() -> void:
 	$MainContainer/LevelGrid/LevelCard3/CardContent/PlayButton.pressed.connect(_on_play_pressed)
 	$MainContainer/LevelGrid/LevelCard4/CardContent/PlayButton.pressed.connect(_on_play_pressed)
 
-	
-	$HomeButton.show()
-	$HomeButton.z_index = 100
-	$HomeButton.modulate = Color.WHITE
-	$HomeButton.gui_input.connect(func(event):
-		print("AAAAAAA")
-		if event is InputEventMouseButton and event.pressed:
-			print("HOME ALANINA TIKLANDI")
-	)
+
 
 
 func _on_play_pressed() -> void:
+	print("PLAY BUTONUNA TIKLANDI!")
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 

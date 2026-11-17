@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://braev43ygupoy" path="res://scenes/bear.gd" id="1_kiw3p"]
 [ext_resource type="Script" uid="uid://wpt0fpl4n31b" path="res://scripts/Game.gd" id="1_qjyg3"]
 [ext_resource type="AudioStream" uid="uid://cpkf2kvrjqxjq" path="res://audios/correct.mp3" id="2_2rd6h"]
+[ext_resource type="Texture2D" uid="uid://7of37ybvhnbn" path="res://assets/UI/correct.png" id="2_elkpi"]
 [ext_resource type="Texture2D" uid="uid://b5en6s5mmiw53" path="res://assets/animals/buffalo.png" id="2_kiw3p"]
 [ext_resource type="AudioStream" uid="uid://nijhhkopm2l8" path="res://audios/wrong.mp3" id="3_7ua8r"]
 [ext_resource type="Texture2D" uid="uid://b1tfrtden7bqf" path="res://assets/animals/chick.png" id="3_400sg"]
@@ -12,6 +13,8 @@
 [ext_resource type="Script" uid="uid://ddimyke1mj1qj" path="res://scenes/chick.gd" id="5_g4kob"]
 [ext_resource type="Texture2D" uid="uid://dh4rrs8liefam" path="res://assets/homes/Cave.png" id="5_kiw3p"]
 [ext_resource type="Texture2D" uid="uid://cnid5loabbdds" path="res://assets/homes/Farm.png" id="6_400sg"]
+[ext_resource type="Texture2D" uid="uid://24pcsubjjmoo" path="res://assets/UI/incorrect.png" id="7_wuoie"]
+[ext_resource type="Texture2D" uid="uid://c8jfwt8nanrd0" path="res://assets/UI/celebration.png" id="8_bvhbk"]
 [ext_resource type="Script" uid="uid://521onmkc4k0t" path="res://scripts/celebrationManager.gd" id="10_qy1jj"]
 [ext_resource type="AudioStream" uid="uid://bv1wthkusr084" path="res://audios/celebration.mp3" id="13_r7sob"]
 [ext_resource type="Texture2D" uid="uid://dfk5jgiq672a6" path="res://images/Background2.jpeg" id="16_elkpi"]
@@ -52,6 +55,24 @@ color = Color(0, 0.7371213, 0.18422097, 1)
 offset_right = 40.0
 offset_bottom = 67.0
 
+[node name="FeedbackImage" type="TextureRect" parent="CanvasLayer" unique_id=1005899558]
+visible = false
+custom_minimum_size = Vector2(260, 210)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -105.0
+offset_right = 130.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_elkpi")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="CelebrationManager" type="CanvasLayer" parent="." unique_id=1863500159]
 script = ExtResource("10_qy1jj")
 kutlama_sesi = ExtResource("13_r7sob")
@@ -76,11 +97,15 @@ texture = ExtResource("16_elkpi")
 
 [node name="OyunAlani" type="Node2D" parent="." unique_id=485452571]
 
-[node name="Bear" type="Area2D" parent="OyunAlani" unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label")]
+[node name="Bear" type="Area2D" parent="OyunAlani" unique_id=246116056 node_paths=PackedStringArray("yuva", "feedback_label", "feedback_image")]
 position = Vector2(168, 350)
 script = ExtResource("1_kiw3p")
 yuva = NodePath("../Cave/HomeArea")
 feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+feedback_image = NodePath("../../CanvasLayer/FeedbackImage")
+correct_texture = ExtResource("2_elkpi")
+incorrect_texture = ExtResource("7_wuoie")
+celebration_texture = ExtResource("8_bvhbk")
 dogru_ses = ExtResource("2_2rd6h")
 yanlis_ses = ExtResource("3_7ua8r")
 
@@ -92,11 +117,15 @@ shape = SubResource("CircleShape2D_5h11f")
 position = Vector2(-13, -34)
 texture = ExtResource("1_aug50")
 
-[node name="Buffalo" type="Area2D" parent="OyunAlani" unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label")]
+[node name="Buffalo" type="Area2D" parent="OyunAlani" unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label", "feedback_image")]
 position = Vector2(232, 536)
 script = ExtResource("3_g4kob")
 yuva = NodePath("../Farm/HomeArea")
 feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+feedback_image = NodePath("../../CanvasLayer/FeedbackImage")
+correct_texture = ExtResource("2_elkpi")
+incorrect_texture = ExtResource("7_wuoie")
+celebration_texture = ExtResource("8_bvhbk")
 dogru_ses = ExtResource("2_2rd6h")
 yanlis_ses = ExtResource("3_7ua8r")
 
@@ -108,11 +137,15 @@ texture = ExtResource("2_kiw3p")
 position = Vector2(-67, 8)
 shape = SubResource("CircleShape2D_bx8n8")
 
-[node name="Chick" type="Area2D" parent="OyunAlani" unique_id=1527926636 node_paths=PackedStringArray("yuva", "feedback_label")]
+[node name="Chick" type="Area2D" parent="OyunAlani" unique_id=1527926636 node_paths=PackedStringArray("yuva", "feedback_label", "feedback_image")]
 position = Vector2(155, 75)
 script = ExtResource("5_g4kob")
 yuva = NodePath("../Brooder/HomeArea")
 feedback_label = NodePath("../../CanvasLayer/FeedBackLabel")
+feedback_image = NodePath("../../CanvasLayer/FeedbackImage")
+correct_texture = ExtResource("2_elkpi")
+incorrect_texture = ExtResource("7_wuoie")
+celebration_texture = ExtResource("8_bvhbk")
 dogru_ses = ExtResource("2_2rd6h")
 yanlis_ses = ExtResource("3_7ua8r")
 

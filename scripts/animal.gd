@@ -5,6 +5,10 @@ extends Area2D
 @export var yuva: Area2D
 @export var feedback_label: Label
 @export var yerlesim_ofseti: Vector2 = Vector2.ZERO
+@export var feedback_image: TextureRect
+@export var correct_texture: Texture2D
+@export var incorrect_texture: Texture2D
+@export var celebration_texture: Texture2D
 
 @export_group("Ses Efektleri")
 @export var dogru_ses: AudioStream
@@ -117,7 +121,7 @@ func yuva_kontrol() -> void:
 
 	if not yuvada_mi:
 		position = baslangic_konumu
-		geri_bildirim_goster("X", Color.RED)
+		geri_bildirim_goster(incorrect_texture)
 		ses_cal(yanlis_ses)
 		print("YANLIS YUVA! Beklenen yuva: ", yuva.name)
 		return
@@ -131,13 +135,13 @@ func yuva_kontrol() -> void:
 	print(name + ": CORRECT!")
 
 	if tum_hayvanlar_tamamlandi():
-		geri_bildirim_goster("🎉", Color.GOLD)
+		geri_bildirim_goster(celebration_texture)
 		get_tree().call_group(
 			"game_manager",
 	        "oyun_tamamlandi"
 		)
 	else:
-		geri_bildirim_goster("✓", Color.GREEN)
+		geri_bildirim_goster(correct_texture)
 
 
 
@@ -154,44 +158,47 @@ func tum_hayvanlar_tamamlandi() -> bool:
 	return true
 
 
-func geri_bildirim_goster(metin: String, renk: Color) -> void:
-	if not is_instance_valid(feedback_label):
-		push_warning(name + ": FeedbackLabel atanmamis!")
+func geri_bildirim_goster(gorsel: Texture2D) -> void:
+	if not is_instance_valid(feedback_image):
+		push_warning(name + ": FeedbackImage atanmamis!")
 		return
 
-	# Aynı Label üzerinde eski bir geri bildirim varsa iptal et.
-	var token = int(feedback_label.get_meta("feedback_token", 0)) + 1
-	feedback_label.set_meta("feedback_token", token)
+	if gorsel == null:
+		push_warning(name + ": Geri bildirim gorseli atanmamis!")
+		return
 
-	if feedback_label.has_meta("feedback_tween"):
-		var eski_tween = feedback_label.get_meta("feedback_tween") as Tween
+	var token = int(feedback_image.get_meta("feedback_token", 0)) + 1
+	feedback_image.set_meta("feedback_token", token)
+
+	if feedback_image.has_meta("feedback_tween"):
+		var eski_tween = feedback_image.get_meta("feedback_tween") as Tween
 		if is_instance_valid(eski_tween) and eski_tween.is_running():
 			eski_tween.kill()
 
-	feedback_label.set_anchors_and_offsets_preset(
-		Control.PRESET_FULL_RECT
+	var goruntu_boyutu = get_viewport_rect().size
+	var oran = minf(
+		goruntu_boyutu.x / 1280.0,
+		goruntu_boyutu.y / 720.0
 	)
-	feedback_label.offset_left = 0
-	feedback_label.offset_top = 0
-	feedback_label.offset_right = 0
-	feedback_label.offset_bottom = 0
+	oran = clampf(oran, 0.5, 1.0)
 
-	feedback_label.text = metin
-	feedback_label.add_theme_color_override("font_color", renk)
-	feedback_label.add_theme_font_size_override("font_size", 220)
-	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	feedback_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	feedback_label.z_index = 200
-	feedback_label.pivot_offset = feedback_label.size / 2.0
-	feedback_label.scale = Vector2(0.2, 0.2)
-	feedback_label.modulate = Color.WHITE
-	feedback_label.visible = true
+	feedback_image.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	feedback_image.texture = gorsel
+	feedback_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	feedback_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	feedback_image.size = Vector2(260, 210) * oran
+	feedback_image.position = (goruntu_boyutu - feedback_image.size) / 2.0
+	feedback_image.pivot_offset = feedback_image.size / 2.0
+	feedback_image.scale = Vector2(0.2, 0.2)
+	feedback_image.modulate = Color.WHITE
+	feedback_image.z_index = 200
+	feedback_image.visible = true
 
-	var tween = feedback_label.create_tween()
-	feedback_label.set_meta("feedback_tween", tween)
+	var tween = feedback_image.create_tween()
+	feedback_image.set_meta("feedback_tween", tween)
 
 	tween.tween_property(
-		feedback_label,
+		feedback_image,
 		"scale",
 		Vector2.ONE,
 		0.3
@@ -199,25 +206,25 @@ func geri_bildirim_goster(metin: String, renk: Color) -> void:
 
 	await tween.finished
 
-	if not is_instance_valid(feedback_label):
+	if not is_instance_valid(feedback_image):
 		return
 
-	if int(feedback_label.get_meta("feedback_token", 0)) != token:
+	if int(feedback_image.get_meta("feedback_token", 0)) != token:
 		return
 
 	await get_tree().create_timer(0.8).timeout
 
-	if not is_instance_valid(feedback_label):
+	if not is_instance_valid(feedback_image):
 		return
 
-	if int(feedback_label.get_meta("feedback_token", 0)) != token:
+	if int(feedback_image.get_meta("feedback_token", 0)) != token:
 		return
 
-	var fade = feedback_label.create_tween()
-	feedback_label.set_meta("feedback_tween", fade)
+	var fade = feedback_image.create_tween()
+	feedback_image.set_meta("feedback_tween", fade)
 
 	fade.tween_property(
-		feedback_label,
+		feedback_image,
 		"modulate:a",
 		0.0,
 		0.25
@@ -225,15 +232,15 @@ func geri_bildirim_goster(metin: String, renk: Color) -> void:
 
 	await fade.finished
 
-	if not is_instance_valid(feedback_label):
+	if not is_instance_valid(feedback_image):
 		return
 
-	if int(feedback_label.get_meta("feedback_token", 0)) != token:
+	if int(feedback_image.get_meta("feedback_token", 0)) != token:
 		return
 
-	feedback_label.visible = false
-	feedback_label.modulate = Color.WHITE
-	feedback_label.scale = Vector2.ONE
+	feedback_image.visible = false
+	feedback_image.modulate = Color.WHITE
+	feedback_image.scale = Vector2.ONE
 
 
 func ses_cal(ses: AudioStream) -> void:

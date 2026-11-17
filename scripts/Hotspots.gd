@@ -27,30 +27,20 @@ func _ready() -> void:
 
 
 func _yerlesimi_guncelle() -> void:
-	if background_image.texture == null:
-		return
-
-	var gorsel_boyutu = background_image.texture.get_size()
-
-	var oran = min(
-		size.x / gorsel_boyutu.x,
-		size.y / gorsel_boyutu.y
-	)
-
-	var gorunen_boyut = gorsel_boyutu * oran
-	var baslangic = (size - gorunen_boyut) / 2.0
+	var oran_x = size.x / TASARIM_BOYUTU.x
+	var oran_y = size.y / TASARIM_BOYUTU.y
 
 	for buton in baslangic_rectleri:
 		var eski_rect: Rect2 = baslangic_rectleri[buton]
 
-		buton.position = baslangic + Vector2(
-			eski_rect.position.x / TASARIM_BOYUTU.x * gorunen_boyut.x,
-			eski_rect.position.y / TASARIM_BOYUTU.y * gorunen_boyut.y
+		buton.position = Vector2(
+			eski_rect.position.x * oran_x,
+			eski_rect.position.y * oran_y
 		)
 
 		buton.size = Vector2(
-			eski_rect.size.x / TASARIM_BOYUTU.x * gorunen_boyut.x,
-			eski_rect.size.y / TASARIM_BOYUTU.y * gorunen_boyut.y
+			eski_rect.size.x * oran_x,
+			eski_rect.size.y * oran_y
 		)
 
 

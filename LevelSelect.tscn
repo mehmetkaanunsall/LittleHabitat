@@ -259,7 +259,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_ardn0")
 expand_mode = 1
-stretch_mode = 4
 
 [node name="Hotspots" type="Control" parent="." unique_id=1014611916]
 layout_mode = 1

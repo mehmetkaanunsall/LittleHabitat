@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://cqff5fed37exf"]
 
-[ext_resource type="Texture2D" uid="uid://cq7unwkbcyyvf" path="res://assets/animals/bear.png" id="1_aug50"]
+[ext_resource type="Texture2D" uid="uid://504n4wtkafq8" path="res://assets/animals/bear.png" id="1_aug50"]
 [ext_resource type="Script" uid="uid://braev43ygupoy" path="res://scenes/bear.gd" id="1_kiw3p"]
 [ext_resource type="Script" uid="uid://wpt0fpl4n31b" path="res://scripts/Game.gd" id="1_qjyg3"]
 [ext_resource type="AudioStream" uid="uid://cpkf2kvrjqxjq" path="res://audios/correct.mp3" id="2_2rd6h"]
 [ext_resource type="Texture2D" uid="uid://7of37ybvhnbn" path="res://assets/UI/correct.png" id="2_elkpi"]
 [ext_resource type="Texture2D" uid="uid://b5en6s5mmiw53" path="res://assets/animals/buffalo.png" id="2_kiw3p"]
 [ext_resource type="AudioStream" uid="uid://nijhhkopm2l8" path="res://audios/wrong.mp3" id="3_7ua8r"]
-[ext_resource type="Texture2D" uid="uid://b1tfrtden7bqf" path="res://assets/animals/chick.png" id="3_400sg"]
+[ext_resource type="Texture2D" uid="uid://cc3vhyg33g6ce" path="res://assets/animals/chick.png" id="3_400sg"]
 [ext_resource type="Script" uid="uid://v7b14xw0ihva" path="res://scenes/buffalo.gd" id="3_g4kob"]
 [ext_resource type="Texture2D" uid="uid://bn78tpgnero53" path="res://assets/homes/brooder.png" id="4_aug50"]
 [ext_resource type="Script" uid="uid://ddimyke1mj1qj" path="res://scenes/chick.gd" id="5_g4kob"]
 [ext_resource type="Texture2D" uid="uid://dh4rrs8liefam" path="res://assets/homes/Cave.png" id="5_kiw3p"]
 [ext_resource type="Texture2D" uid="uid://cnid5loabbdds" path="res://assets/homes/Farm.png" id="6_400sg"]
+[ext_resource type="Script" uid="uid://bl1m43wkd1tx4" path="res://scripts/Global.gd" id="6_bvhbk"]
 [ext_resource type="Texture2D" uid="uid://24pcsubjjmoo" path="res://assets/UI/incorrect.png" id="7_wuoie"]
 [ext_resource type="Texture2D" uid="uid://c8jfwt8nanrd0" path="res://assets/UI/celebration.png" id="8_bvhbk"]
 [ext_resource type="Script" uid="uid://521onmkc4k0t" path="res://scripts/celebrationManager.gd" id="10_qy1jj"]
@@ -29,13 +30,13 @@ radius = 100.17984
 radius = 73.92564
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
-size = Vector2(646.6489, 278.04395)
+size = Vector2(1500, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
-size = Vector2(630.6981, 235.31313)
+size = Vector2(1500, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iqjx"]
-size = Vector2(637.94086, 316.38544)
+size = Vector2(1500, 1000)
 
 [node name="Game" type="Node2D" unique_id=766716135]
 script = ExtResource("1_qjyg3")
@@ -89,6 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("16_elkpi")
+script = ExtResource("6_bvhbk")
 
 [node name="GameBackgroundSprite" type="Sprite2D" parent="." unique_id=69091033]
 z_index = -100
@@ -114,7 +116,8 @@ position = Vector2(-10, -42)
 shape = SubResource("CircleShape2D_5h11f")
 
 [node name="Bear" type="Sprite2D" parent="OyunAlani/Bear" unique_id=1904310283]
-position = Vector2(-13, -34)
+position = Vector2(-13, -42.000015)
+scale = Vector2(0.12609378, 0.1284375)
 texture = ExtResource("1_aug50")
 
 [node name="Buffalo" type="Area2D" parent="OyunAlani" unique_id=394919330 node_paths=PackedStringArray("yuva", "feedback_label", "feedback_image")]

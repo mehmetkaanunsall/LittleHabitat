@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	pass
 func _on_level_1_button_pressed() -> void:
 	print("Level 1 button clicked")
+	get_tree().change_scene_to_file("res://Game.tscn") # ---> OYUN SAHNESİNE GEÇİŞ KODU
 
 func _on_level_2_button_pressed() -> void:
 	print("Level 2 button clicked")

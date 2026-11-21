@@ -47,6 +47,7 @@ func _on_ocean_pressed() -> void:
 
 func _open_level_menu(category: String) -> void:
 	LevelMenu.selected_category = category
-
+	Global.secilen_kategori = category # ---> BU SATIRI YENİ EKLEDİK
+	
 	var scene_tree := Engine.get_main_loop() as SceneTree
 	scene_tree.change_scene_to_file(LEVEL_MENU_SCENE)
